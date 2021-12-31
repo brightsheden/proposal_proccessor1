@@ -100,14 +100,14 @@ const algoSignerConnect = async () => {
             // Use the AlgoSigner encoding library to make the transactions base64
             const txn_b64 = AlgoSigner.encoding.msgpackToBase64(txn.toByte());
                 
-            let signedTransaction =  await AlgoSigner.signTxn([{txn: txn_b64}]);
+            let signedTxn =  await AlgoSigner.signTxn([{txn: txn_b64}]);
         
-            let sendTransaction = await AlgoSigner.send({
+            let sendTxn = await AlgoSigner.send({
                 ledger: 'TestNet',
-                tx: signedTransaction[0].blob
+                tx: signedTxn[0].blob
             });
 
-        if(sendTransaction) {
+        if(sendTxn) {
             proposalCreate.hidden = true;
             proposalVotePage.hidden = false;
             footer.hidden = true;
@@ -216,11 +216,11 @@ const algoSignerConnect = async () => {
              // Use the AlgoSigner encoding library to make the transactions base64
              const txn_b64 = AlgoSigner.encoding.msgpackToBase64(txn.toByte());
                  
-             let signedTransaction =  await AlgoSigner.signedTransaction([{txn: txn_b64}]);
+             let signedTxn =  await AlgoSigner.signTxn([{txn: txn_b64}]);
          
              let sendTxn = await AlgoSigner.send({
                  ledger: 'TestNet',
-                 tx: signedTransaction[0].blob
+                 tx: signedTxn[0].blob
              });
          
              return sendTxn;
@@ -249,11 +249,11 @@ const algoSignerConnect = async () => {
              );
              const txn_b64 = AlgoSigner.encoding.msgpackToBase64(txn.toByte());
                  
-             let signedTransaction =  await AlgoSigner.signTxn([{txn: txn_b64}]);
+             let signedTxn =  await AlgoSigner.signTxn([{txn: txn_b64}]);
          
              let sendTxn = await AlgoSigner.send({
                  ledger: 'TestNet',
-                 tx: signedTransaction[0].blob
+                 tx: signedTxn[0].blob
              });
          
              return sendTxn;
