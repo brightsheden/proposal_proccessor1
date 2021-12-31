@@ -136,8 +136,8 @@ const signProposalTransactions = async () => {
                             ASSET_ID,
                             param
                         );
-                        const signedTransaction = await myAlgoConnect.signTransaction(txn.toByte());
-                        const response = await algodClient.sendRawTransaction(signedTransaction.blob).do();
+                        const signedTxn = await myAlgoConnect.signTransaction(txn.toByte());
+                        const response = await algodClient.sendRawTransaction(signedTxn.blob).do();
                         if(response) {
                      
                             proposalCreate.hidden = true;
@@ -253,8 +253,8 @@ const algoWalletSend = async (value, wallet_address, amount) => {
                 ASSET_ID,
                 params
             );
-            const signedTransaction = await myAlgoConnect.signTransaction(txn.toByte());
-            const response = await algodClient.sendRawTransaction(signedTransaction.blob).do();
+            const signedTxn = await myAlgoConnect.signTransaction(txn.toByte());
+            const response = await algodClient.sendRawTransaction(signedTxn.blob).do();
             return response;
         }catch(error){
             console.log(error);
@@ -278,8 +278,8 @@ const algoWalletSend = async (value, wallet_address, amount) => {
                 ASSET_ID,
                 params
             );
-            const signedTransaction = await myAlgoConnect.signTransaction(txn.toByte());
-            const response = await algodClient.sendRawTransaction(signedTransaction.blob).do();
+            const signedTxn = await myAlgoConnect.signTransaction(txn.toByte());
+            const response = await algodClient.sendRawTransaction(signedTxn.blob).do();
             return response;
         }catch(error){
             console.log(error);
